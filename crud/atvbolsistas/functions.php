@@ -7,7 +7,7 @@ $atvbolsista = null;
 /**	 *  Listagem de atvbolsistas	 */	
 function index() {	
     global $atvbolsistas;		
-    $atvbolsistas = find_all('atvbolsistas');	
+    $atvbolsistas = findjun('atvbolsistas');	
 }
 
 /**	 *  Cadastro de atvbolsistas	 */	
@@ -35,8 +35,11 @@ function add() {
 
     /**	 *  Visualização de um atvbolsista	 */	
     function view($id = null) {	  
-        global $atvbolsista;	  
-        $atvbolsista = find('atvbolsistas', $id);	
+        global $atvbolsista;
+        global $atv;	  
+        $atvbolsista = findjun('atvbolsistas', $id);
+        $atv=findjuna('atvbolsistas', $id);
+        
     }
     /**	 *  Exclusão de um atvbolsista	 */	
     function delete($id = null) {		  

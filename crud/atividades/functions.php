@@ -41,5 +41,6 @@ function add() {
     /**	 *  Exclusão de um atividade	 */	
     function delete($id = null) {		  
         global $atividade;	 
-         $atividade = remove('atividades', $id);		 
-          header('location: index.php');	}
+        $bolsista = remove('atividades', $id);	 
+        header('location: index.php');
+    	}

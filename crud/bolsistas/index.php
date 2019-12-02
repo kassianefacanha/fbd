@@ -56,7 +56,7 @@ endif; ?>
     <i class="fa fa-eye"></i> Visualizar</a>				
     <a href="edit.php?id=<?php echo $bolsista['id']; ?>" class="btn btn-sm btn-warning">
     <i class="fa fa-pencil"></i> Editar</a>				
-    <a href="main.js?id=<?php echo $bolsista['id']; ?>" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-bolsista="<?php echo $bolsista['id']; ?>">					
+    <a href="delete.php?id=<?php echo $bolsista['id']; ?>" class="btn btn-sm btn-danger" >					
     <i class="fa fa-trash"></i> Excluir	</a>			
     </td>		
     </tr>	

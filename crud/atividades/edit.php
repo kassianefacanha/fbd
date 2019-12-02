@@ -6,7 +6,7 @@ edit();
 <h2>Atualizar atividade</h2>
 <form action="edit.php?id=<?php echo $atividade['id']; ?>" method="post">	  
 <hr />	  <div class="row">	    
-    <div class="form-group col-md-7">	      <label for="name">Nome </label>	                      <input type="text" class="form-control" name="atividade['name']" value="<?php echo $atividade['name']; ?>">	    </div>	
+    <div class="form-group col-md-7">	      <label for="name">Nome </label>	                      <input type="text" class="form-control" name="atividade['nome']" value="<?php echo $atividade['nome']; ?>">	    </div>	
     <div class="form-group col-md-3">	      <label for="campo2">Horas</label>	              <input type="text" class="form-control" name="atividade['horas']" value="<?php echo $atividade['horas']; ?>">	    </div>	
   	<div id="actions" class="row">	    
     <div class="col-md-12">	      

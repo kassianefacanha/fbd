@@ -89,7 +89,7 @@ function update(
                           close_database($database);	}
 
                           /**	 *  Remove uma linha de uma tabela pelo ID do registro	 */	
-                          function remove( $table = null, $id = null ) {		 
+                          function remove( $table = null,$id = null ) {		 
                                $database = open_database();			  
                                try {	    
                                    if ($id) {		     
@@ -103,3 +103,51 @@ function update(
                                             $_SESSION['type'] = 'danger';	  }		  
                                             close_database($database);	}
                                             
+
+
+                                            function findjuna( $table = null, $id = null ) {	  		
+                                                $database = open_database();		
+                                                $found = null;			
+                                                try {		  
+                                                    if ($id) {		   		    		    
+                                                          $sql = "SELECT  A.nome , A.horas FROM bolsistas B, atvbolsistas AB, atividades A WHERE B.id = ". $id ." AND B.id = AB.id_bolsista AND AB.id_atividade = A.id" ;		   
+                                                       $result = $database->query($sql);		    		    
+                                                      if ($result->num_rows > 0) {		     
+                                                           $found = $result->fetch_all(MYSQLI_ASSOC);	        	       
+                                                           /* Metodo alternativo	        
+                                                          $found = array();		        
+                                                      while ($row = $result->fetch_assoc()) {	          
+                                                          array_push($found, $row);	        } */		    
+                                                      }		  }		}
+                                                       catch (Exception $e) {		  
+                                                           $_SESSION['message'] = $e->GetMessage();		  
+                                                           $_SESSION['type'] = 'danger';	  }				
+                                                           close_database($database);		
+                                                           return $found;	}
+
+
+                                                           function findjun( $table = null, $id = null ) {	  		
+                                                            $database = open_database();		
+                                                            $found = null;			
+                                                            try {		  
+                                                                if ($id) {		   
+                                                                    $sql ="SELECT B.id, B.name, A.nome , A.horas, SUM(A.horas) as total FROM bolsistas B, atvbolsistas AB, atividades A WHERE B.id = ". $id ." AND B.id = AB.id_bolsista AND AB.id_atividade = A.id GROUP BY B.name" ;
+                                                                     $result = $database->query($sql);		    		    
+                                                                     if ($result->num_rows > 0) {		      
+                                                                         $found = $result->fetch_assoc();		    
+                                                                      }		    		  
+                                                                  } else {		    		    
+                                                                      $sql = "SELECT B.id, B.name, SUM(A.horas) as total FROM bolsistas B, atvbolsistas AB, atividades A WHERE B.id = AB.id_bolsista AND AB.id_atividade = A.id GROUP BY B.name" ;		   
+                                                                   $result = $database->query($sql);		    		    
+                                                                  if ($result->num_rows > 0) {		     
+                                                                       $found = $result->fetch_all(MYSQLI_ASSOC);	        	       
+                                                                       /* Metodo alternativo	        
+                                                                      $found = array();		        
+                                                                  while ($row = $result->fetch_assoc()) {	          
+                                                                      array_push($found, $row);	        } */		    
+                                                                  }		  }		}
+                                                                   catch (Exception $e) {		  
+                                                                       $_SESSION['message'] = $e->GetMessage();		  
+                                                                       $_SESSION['type'] = 'danger';	  }				
+                                                                       close_database($database);		
+                                                                       return $found;	}                             

@@ -8,7 +8,7 @@ include(HEADER_TEMPLATE);
 <header>		
 <div class="row">			
 <div class="col-sm-6">				
-<h2>atividades</h2>			
+<h2>Atividades</h2>			
 </div>			
 <div class="col-sm-6 text-right h2">		    	
 <a class="btn btn-primary" href="add.php">
@@ -47,14 +47,14 @@ endif; ?>
 	<?php foreach ($atividades as $atividade) : ?>		
     <tr>			
     <td><?php echo $atividade['id']; ?></td>			
-    <td><?php echo $atividade['name']; ?></td>			
+    <td><?php echo $atividade['nome']; ?></td>			
     <td><?php echo $atividade['horas']; ?></td>							
     <td class="actions text-right">				
     <a href="view.php?id=<?php echo $atividade['id']; ?>" class="btn btn-sm btn-success">
     <i class="fa fa-eye"></i> Visualizar</a>				
     <a href="edit.php?id=<?php echo $atividade['id']; ?>" class="btn btn-sm btn-warning">
     <i class="fa fa-pencil"></i> Editar</a>				
-    <a href="main.js?id=<?php echo $atividade['id']; ?>" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-atividade="<?php echo $atividade['id']; ?>">					
+    <a href="delete.php?id=<?php echo $atividade['id']; ?>" class="btn btn-sm btn-danger" >					
     <i class="fa fa-trash"></i> Excluir	</a>			
     </td>		
     </tr>	
